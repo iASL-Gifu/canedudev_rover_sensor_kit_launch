@@ -1,17 +1,15 @@
 <launch>
   <arg name="launch_driver" default="true"/>
-
   <group>
     <push-ros-namespace namespace="imu"/>
 
     <group>
       <push-ros-namespace namespace="xsens"/>
-
-      <include file="$(find-pkg-share bluespace_ai_xsens_mti_driver)/launch/xsens_mti_node.launch.py">
+      <node pkg="bluespace_ai_xsens_mti_driver" exec="xsens_mti_node">
         <remap from="imu/data" to="imu_raw"/>
         <param name="frame_id" value="xsens/imu_link"/>
-      </include>
-
+        <param from="$(find-pkg-share bluespace_ai_xsens_mti_driver)/param/xsens_mti_node.yaml"/>
+      </node>
     </group>
 
     <arg name="imu_raw_name" default="xsens/imu_raw"/>
