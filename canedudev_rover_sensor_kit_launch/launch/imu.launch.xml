@@ -5,15 +5,16 @@
     <push-ros-namespace namespace="imu"/>
 
     <group>
-      <push-ros-namespace namespace="tamagawa"/>
-      <node pkg="tamagawa_imu_driver" name="tag_serial_driver" exec="tag_serial_driver" if="$(var launch_driver)">
-        <remap from="imu/data_raw" to="imu_raw"/>
-        <param name="port" value="/dev/imu"/>
-        <param name="imu_frame_id" value="tamagawa/imu_link"/>
-      </node>
+      <push-ros-namespace namespace="xsens"/>
+
+      <include file="$(find-pkg-share bluespace_ai_xsens_mti_driver)/launch/xsens_mti_node.launch.py">
+        <remap from="imu/data" to="imu_raw"/>
+        <param name="frame_id" value="xsens/imu_link"/>
+      </include>
+
     </group>
 
-    <arg name="imu_raw_name" default="tamagawa/imu_raw"/>
+    <arg name="imu_raw_name" default="xsens/imu_raw"/>
     <arg name="imu_corrector_param_file" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/sample_sensor_kit/imu_corrector.param.yaml"/>
     <include file="$(find-pkg-share imu_corrector)/launch/imu_corrector.launch.xml">
       <arg name="input_topic" value="$(var imu_raw_name)"/>
