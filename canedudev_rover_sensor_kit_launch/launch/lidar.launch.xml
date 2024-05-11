@@ -14,7 +14,7 @@
       <include file="$(find-pkg-share common_sensor_launch)/launch/velodyne_VLP16.launch.xml">
         <arg name="max_range" value="5.0"/>
         <arg name="sensor_frame" value="velodyne_top"/>
-        <arg name="sensor_ip" value="192.168.1.203"/>
+        <arg name="sensor_ip" value="192.168.1.201"/>
         <arg name="host_ip" value="$(var host_ip)"/>
         <arg name="data_port" value="2370"/>
         <arg name="scan_phase" value="180.0"/>
