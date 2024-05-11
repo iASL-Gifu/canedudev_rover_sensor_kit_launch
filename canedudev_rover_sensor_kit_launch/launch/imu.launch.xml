@@ -7,7 +7,7 @@
       <push-ros-namespace namespace="xsens"/>
       <node pkg="bluespace_ai_xsens_mti_driver" exec="xsens_mti_node">
         <remap from="imu/data" to="imu_raw"/>
-        <param name="frame_id" value="xsens/imu_link"/>
+        <!-- <param name="frame_id" value="xsens/imu_link"/> -->
         <param from="$(find-pkg-share bluespace_ai_xsens_mti_driver)/param/xsens_mti_node.yaml"/>
       </node>
     </group>
