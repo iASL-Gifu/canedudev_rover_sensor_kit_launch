@@ -10,14 +10,10 @@
 
   <buildtool_depend>ament_cmake_auto</buildtool_depend>
 
-  <exec_depend>autoware_gnss_poser</exec_depend>
   <exec_depend>autoware_pointcloud_preprocessor</exec_depend>
   <exec_depend>autoware_vehicle_velocity_converter</exec_depend>
   <exec_depend>common_sensor_launch</exec_depend>
-  <exec_depend>tamagawa_imu_driver</exec_depend>
-  <exec_depend>topic_tools</exec_depend>
-  <exec_depend>ublox_gps</exec_depend>
-  <exec_depend>usb_cam</exec_depend>
+  <exec_depend>bluespace_ai_xsens_mti_driver</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>autoware_lint_common</test_depend>
