@@ -1,0 +1,48 @@
+<launch>
+  <arg name="host_ip" default="192.168.8.154"/>
+  <arg name="use_concat_filter" default="true"/>
+  <arg name="sensor_frame" default="velodyne_top"/>
+  <arg name="sensor_ip" default="192.168.8.200"/>
+  <arg name="data_port" default="2368"/>
+  <arg name="scan_phase" default="0.0"/>
+  <arg name="base_frame" default="base_link"/>
+  <arg name="use_intra_process" default="true"/>
+  <arg name="use_multithread" default="true"/>
+
+  <arg name="launch_driver"/>
+  <arg name="vehicle_id"/>
+  <arg name="vehicle_info_param_file"/>
+  <arg name="vehicle_mirror_param_file"/>
+  <arg name="pointcloud_container_name"/>
+
+  <group>
+    <push-ros-namespace namespace="lidar"/>
+
+    <group>
+      <push-ros-namespace namespace="top"/>
+      <include file="$(find-pkg-share common_sensor_launch)/launch/velodyne_VLP16.launch.xml">
+        <arg name="host_ip" value="$(var host_ip)"/>
+        <arg name="sensor_ip" value="$(var sensor_ip)"/>
+        <arg name="data_port" value="$(var data_port)"/>
+        <arg name="sensor_frame" value="$(var sensor_frame)"/>
+        <arg name="model" value="VLP32"/>
+        <arg name="scan_phase" value="$(var scan_phase)"/>
+        <arg name="launch_driver" value="$(var launch_driver)"/>
+        <arg name="vehicle_info_param_file" value="$(var vehicle_info_param_file)"/>
+        <arg name="vehicle_mirror_param_file" value="$(var vehicle_mirror_param_file)"/>
+        <arg name="container_name" value="$(var pointcloud_container_name)"/>
+        <arg name="use_intra_process" value="$(var use_intra_process)"/>
+        <arg name="use_multithread" value="$(var use_multithread)"/>
+      </include>
+    </group>
+
+    <include file="$(find-pkg-share canedudev_rover_sensor_kit_launch)/launch/pointcloud_preprocessor.launch.py">
+      <arg name="base_frame" value="$(var base_frame)"/>
+      <arg name="use_intra_process" value="$(var use_intra_process)"/>
+      <arg name="use_multithread" value="$(var use_multithread)"/>
+      <arg name="use_concat_filter" value="true"/>
+
+      <arg name="pointcloud_container_name" value="$(var pointcloud_container_name)"/>
+    </include>
+  </group>
+</launch>

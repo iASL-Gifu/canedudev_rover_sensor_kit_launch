@@ -1,0 +1,32 @@
+<launch>
+  <arg name="vehicle_id" default="default"/>
+
+  <group>
+    <push-ros-namespace namespace="imu"/>
+
+    <group>
+      <arg name="imu_raw_name" default="/imu/data">
+
+      <node pkg="bluespace_ai_xsens_mti_driver" exec="xsens_mti_node" name="xsens_mti_node" output="screen">
+        <param from="$(find-pkg-share bluespace_ai_xsens_mti_driver)/param/xsens_mti_node.yaml"/>
+        <param name="scan_for_devices" value="false"/>
+        <param name="device_id" value="/dev/xsens-mti-600-dev-01"/>
+        <param name="frame_id" value="xsens_imu"/>
+      </node>
+
+      <arg name="imu_corrector_param_file" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/canedudev_rover_sensor_kit/imu_corrector.param.yaml"/>
+      <include file="$(find-pkg-share autoware_imu_corrector)/launch/imu_corrector.launch.xml">
+        <arg name="input_topic" value="$(var imu_raw_name)"/>
+        <arg name="output_topic" value="imu_data"/>
+        <arg name="param_file" value="$(var imu_corrector_param_file)"/>
+      </include>
+
+      <include file="$(find-pkg-share autoware_imu_corrector)/launch/gyro_bias_estimator.launch.xml">
+        <arg name="input_imu_raw" value="$(var imu_raw_name)"/>
+        <arg name="input_odom" value="/localization/kinematic_state"/>
+        <arg name="imu_corrector_param_file" value="$(var imu_corrector_param_file)"/>
+      </include>
+
+    </group>
+  </group>
+</launch>

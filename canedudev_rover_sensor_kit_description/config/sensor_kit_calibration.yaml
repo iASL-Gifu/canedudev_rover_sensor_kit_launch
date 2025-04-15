@@ -1,0 +1,15 @@
+sensor_kit_base_link:
+  velodyne_top_base_link:
+    x: 0.5
+    y: 0.0
+    z: 0.45
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
+  xsens_imu_link:
+    x: 0.6
+    y: 0.0
+    z: 0.18
+    roll: 0.0
+    pitch: 0.0
+    yaw: 0.0
