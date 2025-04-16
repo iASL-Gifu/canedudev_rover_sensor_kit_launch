@@ -24,16 +24,16 @@
 
     <!-- LiDAR -->
     <!-- ================================================================
-    TF Chain Definition:
+    TF Chain Definition
       sensor_kit_base_link → velodyne_top_base_link → velodyne_top
 
-    Frame Details:
-      - velodyne_top_base_link:
+    Frame Details
+      - velodyne_top_base_link
           Origin is located at the **bottom of the LiDAR sensor**
-      - velodyne_top:
+      - velodyne_top
           Origin is located at the **laser emission point**
 
-    Note:
+    Note
       Parameters such as `topic`, `hz`, `samples`, and `gpu` are
       **only used in Gazebo simulations** and are **not relevant here**.
     ================================================================ -->
@@ -51,10 +51,10 @@
 
     <!-- IMU -->
     <!-- ================================================================
-    TF Definition:
+    TF Definition
       sensor_kit_base_link → xsens_imu_link
 
-    Note:
+    Note
       The `fps` parameter is used only in Gazebo simulations and is
       not relevant in this context.
     ================================================================ -->
