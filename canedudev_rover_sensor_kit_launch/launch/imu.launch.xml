@@ -12,7 +12,8 @@
         <param name="scan_for_devices" value="false"/>
         <param name="port" value="/dev/xsens-mti-600-dev-01"/>
         <param name="baudrate" value="2000000"/>
-        <param name="frame_id" value="xsens_imu"/>
+        <param name="frame_id" value="xsens_imu_link"/>
+        <param name="pub_transform" value="false"/>
       </node>
 
       <arg name="imu_corrector_param_file" default="$(find-pkg-share individual_params)/config/$(var vehicle_id)/canedudev_rover_sensor_kit/imu_corrector.param.yaml"/>

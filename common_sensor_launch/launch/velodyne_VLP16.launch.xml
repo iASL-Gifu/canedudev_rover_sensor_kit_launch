@@ -1,7 +1,7 @@
 <launch>
   <!-- Params -->
   <arg name="launch_driver" default="true"/>
-  <arg name="model" default="VLP16"/>
+  <arg name="model" default="VLP32"/>
   <arg name="max_range" default="130.0"/>
   <arg name="min_range" default="0.4"/>
   <arg name="sensor_frame" default="velodyne"/>
@@ -30,7 +30,7 @@
     <arg name="cloud_max_angle" value="$(var cloud_max_angle)"/>
     <arg name="vehicle_mirror_param_file" value="$(var vehicle_mirror_param_file)"/>
     <arg name="use_intra_process" value="true"/>
-    <arg name="use_multithread" value="false"/>
+    <arg name="use_multithread" value="true"/>
     <arg name="container_name" value="$(var container_name)"/>
   </include>
 
