@@ -15,6 +15,10 @@
     <include file="$(find-pkg-share canedudev_rover_sensor_kit_launch)/launch/imu.launch.xml">
     </include>
 
+    <!-- GNSS Driver -->
+    <include file="$(find-pkg-share canedudev_rover_sensor_kit_launch)/launch/gnss.launch.xml">
+    </include>
+
     <!-- Vehicle Velocity Converter  -->
     <include file="$(find-pkg-share autoware_vehicle_velocity_converter)/launch/vehicle_velocity_converter.launch.xml">
       <arg name="input_vehicle_velocity_topic" value="/vehicle/status/velocity_status"/>

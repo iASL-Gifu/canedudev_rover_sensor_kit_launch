@@ -10,7 +10,8 @@
       <node pkg="bluespace_ai_xsens_mti_driver" exec="xsens_mti_node" name="xsens_mti_node" output="screen">
         <param from="$(find-pkg-share bluespace_ai_xsens_mti_driver)/param/xsens_mti_node.yaml"/>
         <param name="scan_for_devices" value="false"/>
-        <param name="device_id" value="/dev/xsens-mti-600-dev-01"/>
+        <param name="port" value="/dev/xsens-mti-600-dev-01"/>
+        <param name="baudrate" value="2000000"/>
         <param name="frame_id" value="xsens_imu"/>
       </node>
 
