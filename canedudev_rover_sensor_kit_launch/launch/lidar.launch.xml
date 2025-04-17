@@ -10,8 +10,6 @@
   <arg name="use_multithread" default="true"/>
 
   <arg name="launch_driver"/>
-  <arg name="vehicle_id"/>
-  <arg name="vehicle_info_param_file"/>
   <arg name="vehicle_mirror_param_file"/>
   <arg name="pointcloud_container_name"/>
 

@@ -5,7 +5,7 @@
     <push-ros-namespace namespace="imu"/>
 
     <group>
-      <arg name="imu_raw_name" default="/imu/data">
+      <arg name="imu_raw_name" default="/imu/data"/>
 
       <node pkg="bluespace_ai_xsens_mti_driver" exec="xsens_mti_node" name="xsens_mti_node" output="screen">
         <param from="$(find-pkg-share bluespace_ai_xsens_mti_driver)/param/xsens_mti_node.yaml"/>
